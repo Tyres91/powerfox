@@ -12,7 +12,7 @@ I recommend using [HACS](https://github.com/custom-components/hacs#hacs-home-ass
 
 In HACS Settings --> Custom Repositories, add the following:
 ```    
-https://github.com/9rpp/securifi
+https://github.com/Tyres91/powerfox
 ```
 Use type: `Integration`
 
@@ -24,6 +24,4 @@ This integration is configured from the Home Assistant UI (Configuration -> Inte
 TODO - add screenshot
 
 #### References
-Securifi Websocket API Documentation: https://wiki.securifi.com/index.php/Websockets_Documentation#Updatedeviceindex
-
-Securifi Device List Documentation: https://wiki.securifi.com/index.php/Devicelist_Documentation
+Securifi Websocket API Documentation: https://www.powerfox.energy/wp-content/uploads/2020/05/powerfox-Kunden-API.pdf

@@ -1,4 +1,4 @@
-"""The securifi integration."""
+"""The powerfox integration."""
 import asyncio
 
 import voluptuous as vol
@@ -36,12 +36,12 @@ CONFIG_SCHEMA = vol.All(
 
 
 async def async_setup(hass: HomeAssistant, config: dict):
-    """Set up the securifi component."""
+    """Set up the powerfox component."""
     return True
 
 
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
-    """Set up securifi from a config entry."""
+    """Set up powerfox from a config entry."""
     # TODO Store an API object for your platforms to access
     # hass.data[DOMAIN][entry.entry_id] = MyApi(...)
 

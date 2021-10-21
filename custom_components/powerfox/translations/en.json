@@ -1,13 +1,13 @@
 {
     "config": {
         "abort": {
-            "already_configured": "A Securifi server has been configured previously"
+            "already_configured": "A Powerfox access has been configured previously"
         },
         "create_entry": {
-            "default": "Securifi server added"
+            "default": "Powerfox server added"
         },
         "error": {
-            "cannot_connect": "Unable to connect to Securifi server",
+            "cannot_connect": "Unable to connect to Powerfox server",
             "invalid_auth": "Authentication failure",
             "unknown": "Unknown error"
         },
@@ -22,5 +22,5 @@
             }
         }
     },
-    "title": "Add a Securifi Server"
+    "title": "Add a Powerfox Server"
 }

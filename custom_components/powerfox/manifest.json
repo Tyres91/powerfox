@@ -1,0 +1,15 @@
+{
+  "domain": "powerfox",
+  "name": "Powerfox RESTful API",
+  "config_flow": true,
+  "documentation": "https://github.com/Tyres91/powerfox",
+  "issue_tracker": "https://github.com/Tyres91/powerfox/issues",
+  "requirements": ["websocket-client==0.57.0"],
+  "ssdp": [],
+  "zeroconf": [],
+  "homekit": {},
+  "dependencies": [],
+  "codeowners": [
+    "@Tyres91"
+  ]
+}

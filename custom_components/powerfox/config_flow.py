@@ -1,4 +1,4 @@
-"""Config flow for securifi integration."""
+"""Config flow for powerfox integration."""
 
 
 import logging
@@ -60,11 +60,11 @@ async def validate_input(hass: core.HomeAssistant, data):
     # InvalidAuth
 
     # Return info that you want to store in the config entry.
-    return {"title": "Securifi Almond"}
+    return {"title": "Powerfox Almond"}
 
 
 class SecurifiFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
-    """Handle a config flow for securifi."""
+    """Handle a config flow for powerfox."""
 
     VERSION = 1
     CONNECTION_CLASS = config_entries.CONN_CLASS_LOCAL_POLL
