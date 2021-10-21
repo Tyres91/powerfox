@@ -1,8 +1,8 @@
-## Securifi RESTful API integration for Home Assistant
+## Powerfox RESTful API integration for Home Assistant
 
 :warning: **experimental** :warning:
 
-This is really a custom implementation of the Securifi websocket APIs to fulfill my own personal need at home, expect minimal function and limited quality from this integration. 
+This is really a custom implementation of the Powerfox websocket APIs to fulfill my own personal need at home, expect minimal function and limited quality from this integration. 
 
 #### Install with HACS (Home Assistant Community Store)
 
@@ -24,4 +24,4 @@ This integration is configured from the Home Assistant UI (Configuration -> Inte
 TODO - add screenshot
 
 #### References
-Securifi Websocket API Documentation: https://www.powerfox.energy/wp-content/uploads/2020/05/powerfox-Kunden-API.pdf
+Powerfox Websocket API Documentation: https://www.powerfox.energy/wp-content/uploads/2020/05/powerfox-Kunden-API.pdf

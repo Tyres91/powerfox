@@ -1,4 +1,4 @@
-"""An API Client to interact with Securifi Almond"""
+"""An API Client to interact with Powerfox Almond"""
 import json
 import logging
 import time
@@ -14,7 +14,7 @@ _LOGGER = logging.getLogger(__name__)
 # _LOGGER.addHandler(ch)
 
 
-class securifi_almond:
+class powerfox_almond:
     DEFAULT_PORT = 7681
     DEFAULT_USER = "admin"
 
@@ -109,7 +109,7 @@ class securifi_almond:
             self._ws = create_connection(url)
             result = self._ws.recv()
             if not result:
-                _LOGGER.error("Could not connect to Securifi Almond websocket")
+                _LOGGER.error("Could not connect to Powerfox Almond websocket")
                 self._ws = None
                 return False
             rsp = eval(result)
@@ -214,7 +214,7 @@ class securifi_almond:
 
 
 def main():
-    almond = securifi_almond("192.168.1.101", "third62")
+    almond = powerfox_almond("192.168.1.101", "third62")
     sw_objs = almond.get_switches()
     _LOGGER.debug(str(sw_objs))
     for sw in sw_objs:

@@ -1,4 +1,4 @@
-"""Platform for Securifi switch integration."""
+"""Platform for Powerfox switch integration."""
 import logging
 import sys
 from datetime import timedelta
@@ -15,7 +15,7 @@ from homeassistant.helpers.update_coordinator import (
 )
 from websocket import create_connection
 
-from .py_securifi import *
+from .py_powerfox import *
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -33,14 +33,14 @@ PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend(
 
 
 async def async_setup_platform(hass, config, async_add_entities, discovery_info=None):
-    """Set up the Securifi platform."""
+    """Set up the Powerfox platform."""
     # Assign configuration variables.
     # The configuration check takes care they are present.
     host = config[CONF_HOST]
     username = config[CONF_USERNAME]
     password = config.get(CONF_PASSWORD)
 
-    almond = securifi_almond(host, password, user=username)
+    almond = powerfox_almond(host, password, user=username)
 
     async def async_update_data():
         """Fetch data from API endpoint.
@@ -60,7 +60,7 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
         hass,
         _LOGGER,
         # Name of the data. For logging purposes.
-        name="SecurifiSwitch",
+        name="PowerfoxSwitch",
         update_method=async_update_data,
         # Polling interval. Will only be polled if there are subscribers.
         update_interval=SCAN_INTERVAL,
@@ -68,12 +68,12 @@ async def async_setup_platform(hass, config, async_add_entities, discovery_info=
 
     # Add devices
     async_add_entities(
-        SecurifiSwitch(coordinator, switch) for switch in almond.get_switches()
+        PowerfoxSwitch(coordinator, switch) for switch in almond.get_switches()
     )
 
 
 async def async_setup_entry(hass, config_entry, async_add_entities):
-    """Set up the Securifi platform."""
+    """Set up the Powerfox platform."""
     # Assign configuration variables.
     # The configuration check takes care they are present.
 
@@ -81,7 +81,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     username = config_entry.data[CONF_USERNAME]
     password = config_entry.data[CONF_PASSWORD]
 
-    almond = securifi_almond(host, password, user=username)
+    almond = powerfox_almond(host, password, user=username)
 
     async def async_update_data():
         """Fetch data from API endpoint.
@@ -101,7 +101,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
         hass,
         _LOGGER,
         # Name of the data. For logging purposes.
-        name="SecurifiSwitch",
+        name="PowerfoxSwitch",
         update_method=async_update_data,
         # Polling interval. Will only be polled if there are subscribers.
         update_interval=SCAN_INTERVAL,
@@ -109,17 +109,17 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
 
     # Add devices
     async_add_entities(
-        SecurifiSwitch(coordinator, switch) for switch in almond.get_switches()
+        PowerfoxSwitch(coordinator, switch) for switch in almond.get_switches()
     )
 
 
-class SecurifiSwitch(CoordinatorEntity, SwitchEntity):
-    """Representation of a Securifi switch (SecurifiSmartSwitch/BinarySwitch)."""
+class PowerfoxSwitch(CoordinatorEntity, SwitchEntity):
+    """Representation of a Powerfox switch (PowerfoxSmartSwitch/BinarySwitch)."""
 
-    """ https://wiki.securifi.com/index.php/Devicelist_Documentation """
+    """ https://wiki.powerfox.com/index.php/Devicelist_Documentation """
 
     def __init__(self, coordinator, switch):
-        """Initialize a Securifi switch."""
+        """Initialize a Powerfox switch."""
         super().__init__(coordinator)
         self._switch = switch
         self._devid = switch.get_devid()
@@ -146,7 +146,7 @@ class SecurifiSwitch(CoordinatorEntity, SwitchEntity):
     @property
     def unique_id(self):
         """Return a unique ID."""
-        return f"securifi_almond_switch_{self._devid}"
+        return f"powerfox_almond_switch_{self._devid}"
 
     async def async_turn_on(self, **kwargs):
         self._switch.turn_on()
